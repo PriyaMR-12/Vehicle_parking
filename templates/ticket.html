@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parking Ticket</title>
+<link rel="stylesheet" href="./ticket.css"/>
+</head>
+<body>
+<div class="container">
+<div class="ticket-details">
+<h1>Parking Ticket</h1>
+<p>Name: <span id="name">N/A</span></p>
+<p>Email: <span id="email">N/A</span></p>
+<p>Slot Id: <span id="slotId">N/A</span></p>
+<p>Parking Time: <span id="parkingTime">N/A</span></p>
+<p>End Time: <span id="endTime">N/A</span></p>
+<p>Date: <span id="date">N/A</span></p>
+</div>
+<div class="qr-code-container">
+<img id="qrCode" alt="QR Code" />
+</div>
+</div>
+<script>
+async function fetchTicket() {
+try {
+// Fetch the ticket data from the backend
+const response = await fetch('http://localhost:5001/get-ticket');
+if (!response.ok) {
+throw new Error(`HTTP error! status: ${response.status}`);
+}
+const data = await response.json();
+const ticketData = data.ticketData || {};
+const qrCodeUrl = data.qrCodeUrl;
+// Update HTML with ticket details
+document.getElementById('name').innerText = ticketData.name || 'N/A';
+document.getElementById('email').innerText = ticketData.email || 'N/A';
+document.getElementById('slotId').innerText = ticketData.slotId || 'N/A';
+document.getElementById('parkingTime').innerText = ticketData.Parking_time || 'N/A';
+document.getElementById('endTime').innerText = ticketData.End_time || 'N/A';
+document.getElementById('date').innerText = ticketData.Date || 'N/A';
+// Set QR code
+if (qrCodeUrl) {
+document.getElementById('qrCode').src = qrCodeUrl;
+}
+} catch (error) {
+console.error('Error fetching ticket:', error);
+alert('Failed to fetch ticket details. Please try again.');
+}
+}
+// Call the function to fetch and display ticket data
+fetchTicket();
+</script>
+</body>
+</html>

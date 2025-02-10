@@ -1,0 +1,34 @@
+body{
+    background-image: url('../images/bg2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+    .circle {
+    display: inline-flex; /* Use inline-flex to align the icon properly */
+    justify-content: center; /* Center the icon horizontally */
+    align-items: center; /* Center the icon vertically */
+    width: 80px; /* Set the width of the circle */
+    height: 80px; /* Set the height of the circle */
+    border-radius: 50%; /* Makes the icon circular */
+    background-color: #ddd; /* Optional: background color for the circle */
+    font-size: 24px; /* Adjust the size of the icon */
+    }
+    div{
+    display: flex;
+    justify-content: center;
+    height: 50vh;
+    align-items: center;
+    }
+    a{
+    padding: 10px;
+    }
+    img{
+    display: inline-flex;/* Use inline-flex to align the icon properly */
+    justify-content: center; /* Center the icon horizontally */
+    align-items: center; /*Center the icon vertically */
+    width: 250px; /* Set the width of the circle */
+    height: 250px; /* Set the height of the circle */
+    border-radius: 50%; /* Makes the icon circular */
+    font-size: 24px; /* Adjust the size of the icon */
+    }
+    

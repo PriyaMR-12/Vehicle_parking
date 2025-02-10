@@ -1,0 +1,30 @@
+body{
+    background-image: url('../images/front\ page.avif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+    img{
+    display: inline-flex;/* Use inline-flex to align the icon properly */
+    justify-content: center; /* Center the icon horizontally */
+    align-items: center; /*Center the icon vertically */
+    width: 250px; /* Set the width of the circle */
+    height: 250px; /* Set the height of the circle */
+    border-radius: 50%; /* Makes the icon circular */
+    font-size: 24px; /* Adjust the size of the icon */
+    }
+    button{
+    padding: 15px;
+    width: 250px;
+    background-color: lightslategrey;
+    border: none;
+    font-size: medium;
+    }
+    button:hover{
+    background-color: white;
+    }
+    div{
+    display: flex;
+    justify-content: center;
+    height: 50vh;
+    align-items: center;
+    }

@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: rgb(182, 190, 194);
+    }
+    .parking-lot {
+    display: grid;
+    grid-template-columns: repeat(9, 60px);
+    gap: 10px;
+    background-color: #fff;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    }
+    .parking-slot {
+    width: 60px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #87CEEB;
+    color: #fff;
+    font-weight: bold;
+    border: 1px solid #005f73;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    }
+    .parking-slot.selected {
+    background-color: #32CD32;
+    }
+    .form-container {
+    margin-top: 20px;
+    }

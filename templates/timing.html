@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Timing</title>
+<style>
+body{
+background-color: rgb(6, 6, 45);
+text-align: center;
+margin: 100px; 
+color: white;
+}
+input{
+padding: 8px;
+margin: 10px;
+}
+a{
+text-align: end;
+justify-content: end;
+float: right;
+}
+button{
+padding: 10px;
+}
+</style>
+</head>
+<body>
+<form id="parkingTimeDate" method="post">
+<h2>Timing details </h2>
+<label for="time">Duration</label>
+<select name="time" id="time" onchange="updateEndTime()">
+<option value="1">1 hour</option>
+<option value="2">2 hours</option>
+<option value="3">3 hours</option>
+<option value="4">4 hours</option>
+</select><br><br>
+<label for="parking-time">Parking Time</label>
+<input type="time" id="parking-time" onchange="updateEndTime()"><br><br>
+<label for="end-time">End Time</label>
+<input type="time" id="end-time" readonly><br><br>
+<label for="date">Date</label>
+<input type="date" id="date"><br><br>
+<button type="submit">Submit</button>
+</form>
+<div id="total-amount"></div> <script>
+function updateEndTime() {
+const parkingTime = document.getElementById('parking-time').value;
+const selectedTime = document.getElementById('time').value;
+if (parkingTime && selectedTime) {
+const startDate = new Date(`1970-01-01T${parkingTime}:00`);
+const duration = parseInt(selectedTime);
+const endDate = new Date(startDate.getTime() + duration * 60 * 60 * 1000);
+const endHours = endDate.getHours().toString().padStart(2, '0');
+const endMinutes = endDate.getMinutes().toString().padStart(2, '0');
+const endTime = `${endHours}:${endMinutes}`;
+document.getElementById('end-time').value = endTime;
+const pricePerHour = 50; 
+const totalAmount = duration * pricePerHour;
+document.getElementById('total-amount').textContent = `Total Amount: ₹${totalAmount}`;
+}
+}
+document.getElementById("parkingTimeDate").addEventListener("submit", async (e) => {
+e.preventDefault(); 
+const formData = {
+Time: document.getElementById('time').value,
+Parking_time: document.getElementById('parking-time').value,
+End_time: document.getElementById('end-time').value,
+Date: document.getElementById('date').value,
+};
+try {
+const response = await fetch('http://localhost:5003/submit-parking', {
+method: 'POST',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify(formData),
+});
+if (!response.ok) {
+throw new Error('Network response was not ok');
+}
+const data = await response.json();
+console.log('Server Response:', data);
+alert('Form submitted successfully!');
+// Redirect to parking_space.html after a short delay
+setTimeout(() => {
+window.location.href = 'parking_space.html'; 
+}, 500); // 500ms delay
+} catch (error) {
+console.error('Error:', error);
+alert('Failed to submit form.');
+}
+});
+</script>
+</body>
+</html>
