@@ -1,0 +1,21 @@
+body{
+    background-color: rgb(6, 6, 45);
+    text-align: center;
+    margin: 100px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    }
+    input{
+    padding: 8px;
+    margin: 10px;
+    }
+    a{
+    text-align: end;
+    justify-content: end;
+    float: right;
+    }
+    button{
+    padding: 10px;
+    }
+    

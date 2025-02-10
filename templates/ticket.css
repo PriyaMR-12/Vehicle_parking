@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+    }
+    .container {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    img {
+    margin-top: 20px;
+    max-width: 200px;
+    }
+    .container {
+    display: flex; /* Use flexbox for side-by-side layout */
+    justify-content: space-between; /* Space between the QR code and details */
+    align-items: center; /* Align vertically */
+    padding: 20px;
+    }
+    .qr-code-container {
+    width: 200px; /* Adjust width as needed */
+    }
+    .qr-code-container img {
+    width: 100%; /* Make the QR code responsive */
+    }
+    .ticket-details {
+    margin-left: 20px; /* Add some space between the QR code and details */
+    }

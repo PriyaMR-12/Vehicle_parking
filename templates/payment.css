@@ -1,0 +1,9 @@
+body{
+    text-align: center;
+    margin: 100px;
+    }
+    button{
+    border: none;
+    padding: 10px;
+    background-color: beige;
+    }

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PhonePe Payment</title>
+<script>
+// This function will display the total amount when the QR code is clicked
+function showPaymentDetails() {
+// Retrieve the total amount from localStorage
+const totalAmount = localStorage.getItem('totalAmount');
+// Check if the totalAmount exists and is valid
+if (totalAmount && !isNaN(totalAmount)) {
+document.getElementById('total-amount').textContent = `Total Amount to Pay: 
+₹${totalAmount}`;
+} else {
+document.getElementById('total-amount').textContent = 'No valid amount found. Please check your reservation details.';
+console.log("No valid totalAmount found in localStorage");
+}
+}
+</script>
+<link rel="stylesheet" href="./payment.css"/>
+</head>
+<body>
+<h2> QR Code to pay</h2>
+<!-- QR Code that triggers the display of payment details when clicked -->
+<img src="/images/Phonepay.png" alt="PhonePe QR Code" width="400" height="256"
+onclick="showPaymentDetails()" />
+<!-- Button to move to the next step -->
+<a href="./ticket.html"><button>Next</button></a>
+</body>
+</html>
